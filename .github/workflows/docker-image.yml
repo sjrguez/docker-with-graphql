@@ -31,4 +31,4 @@ jobs:
 
     - name: Docker Push
       run: |
-        docker push -t sjrguez/docker-graphql:0.0.2
+        docker push sjrguez/docker-graphql:0.0.2 .
