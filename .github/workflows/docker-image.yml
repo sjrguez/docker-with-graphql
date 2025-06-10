@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Build the Docker image
+    - name: Checkout code
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
@@ -23,6 +23,12 @@ jobs:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
-        echo "Iniciando Login"
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
-        echo "Fin del Login"
+
+    - name: Docker Build
+      run: |
+        docker build -t sjrguez/docker-graphql:0.0.2
+
+    - name: Docker Push
+      run: |
+        docker push -t sjrguez/docker-graphql:0.0.2
