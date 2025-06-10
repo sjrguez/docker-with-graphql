@@ -27,7 +27,7 @@ jobs:
 
     - name: Docker Build
       run: |
-        docker build -t sjrguez/docker-graphql:0.0.2
+        docker build -t sjrguez/docker-graphql:0.0.2 .
 
     - name: Docker Push
       run: |
